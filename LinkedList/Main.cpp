@@ -12,7 +12,7 @@ int main() {
 
 	// Create nodes
 	Node node01 = { 0, nullptr };
-	nodes.push_back(node01);
+	nodes.push_back(node01); // /!\ push_back does a COPY /!\ // 
 	Node node02 = { 1, nullptr };
 	nodes.push_back(node02);
 	Node node03 = { 2, nullptr };
@@ -26,16 +26,6 @@ int main() {
 	for (int i = 0; i < nodes.size() - 1; i++)
 	{
 		nodes[i].nextPtr = &nodes[i + 1];
-	}
-
-	Node* test = node01.nextPtr;
-	Node** testRef = &node01.nextPtr;
-
-	if (test == nullptr) {
-		cout << "Node*: NULL_PTR" << endl;
-	}
-	else if (testRef == nullptr) {
-		cout << "Node**: NULL_PTR" << endl;
 	}
 
 	// Print nodes values
