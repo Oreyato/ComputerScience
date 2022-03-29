@@ -21,8 +21,10 @@ public:
 	int at(int pos);
 
 private:
-	void add(Node node);
+	void addNode(Node node);
 
 	std::vector<Node> list;
+
+	int size;
 };
 
