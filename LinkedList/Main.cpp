@@ -4,6 +4,10 @@ using std::endl;
 using std::vector;
 
 int main() {
+	// =============================================================
+	// vvv TESTING PURPOSE =========================================
+	// =============================================================
+
 	std::vector<Node> nodes;
 
 	// Create nodes
@@ -24,12 +28,31 @@ int main() {
 		nodes[i].nextPtr = &nodes[i + 1];
 	}
 
+	Node* test = node01.nextPtr;
+	Node** testRef = &node01.nextPtr;
+
+	if (test == nullptr) {
+		cout << "Node*: NULL_PTR" << endl;
+	}
+	else if (testRef == nullptr) {
+		cout << "Node**: NULL_PTR" << endl;
+	}
+
 	// Print nodes values
 	cout << nodes[0].value << endl;
 	for (int i = 0; i < nodes.size() - 1; i++)
 	{
 		cout << nodes[i].nextPtr->value << endl;
 	}
+
+	// Print a specific node's value
+	int value = 0;
+	// ~on va choisir d'aller jusqu'au 3ième node
+
+
+	// =============================================================
+	// ^^^ TESTING PURPOSE =========================================
+	// =============================================================
 
 	return 0;
 }

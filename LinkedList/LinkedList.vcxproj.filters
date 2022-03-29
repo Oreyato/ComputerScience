@@ -19,6 +19,9 @@
     <ClCompile Include="Draft.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Draft02.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LinkedList.h">

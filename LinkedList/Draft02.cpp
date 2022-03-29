@@ -3,7 +3,7 @@ using std::cout;
 using std::endl;
 using std::vector;
 
-int main() {
+int main02() {
 	LinkedList list;
 
 	// Create nodes

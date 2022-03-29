@@ -3,7 +3,7 @@ using std::cout;
 using std::endl;
 using std::vector;
 
-int main() {
+int main01() {
 	std::vector<Node> nodes;
 
 	// Create nodes
