@@ -5,7 +5,7 @@
 struct Node
 {
 	int value;
-	Node* nextPtr;
+	Node* p_next;
 };
 
 class LinkedList
@@ -20,11 +20,15 @@ public:
 	void remove(int num, int pos);
 	int at(int pos);
 
+	int size() { return listSize; }
+	void display();
+
 private:
-	void addNode(Node node);
+	Node* atNode(Node* node, int pos);
+	void sizeError();
 
-	std::vector<Node> list;
+	Node* p_startNode{ nullptr };
 
-	int size;
+	int listSize{ 0 };
 };
 
