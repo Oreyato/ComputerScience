@@ -204,10 +204,10 @@ void LinkedList::display()
 			// Get a copy of next node to get its value
 			Node _node = *node->p_next;
 
-			cout << "\t value: " << node->value << "\tnext adress: " << node->p_next << " (next val.: " << _node.value << ")" << endl;
+			cout << "\t value: " << node->value << "\tcurr. adr.:" << node << "\tnext adr.: " << node->p_next << " (val.: " << _node.value << ")" << endl;
 		}
 		else {
-			cout << "\t value: " << node->value << "\tnext adress: " << node->p_next << endl;
+			cout << "\t value: " << node->value << "\tcurr. adr.:" << node <<"\tnext adr.: " << node->p_next << endl;
 		}
 		node = node->p_next;
 	}
