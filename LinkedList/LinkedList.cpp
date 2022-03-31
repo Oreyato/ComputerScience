@@ -105,6 +105,65 @@ int LinkedList::at(int pos)
 	}
 }
 
+void LinkedList::swap(int from, int to)
+{
+	// Check if the user try to swap something with itself
+	if (from == to) {
+		std::cout << "You can't swap something with itself" << std::endl;
+	}
+	// In order to simplify the tests, from will always be the lowest value
+	else if (from > to) {
+		int tmp = from;
+		from = to;
+		to = tmp;
+	}
+
+	// Testing if the destination pos exists within the list
+	if (to > listSize - 1) {
+		sizeError();
+	}
+	else {
+		// Get from node
+		Node* fromNode = atNode(p_startNode, from);
+		// Get to node
+		Node* toNode = atNode(p_startNode, to);
+
+		// Get always existing neighbours
+		Node* rightNeighFromNode = atNode(p_startNode, from + 1);
+		Node* leftNeighToNode = atNode(p_startNode, to - 1);
+
+		// Is the starting position the first one on the list?
+		if (from == 0) {
+			// Get remaining neighbour
+			Node* rightNeighToNode = atNode(p_startNode, to + 1);
+
+
+		}
+		// Is the destination pos the last one on the list?
+		else if (to == listSize - 1) {
+			// Get remaining neighbour
+			Node* leftNeighFromNode = atNode(p_startNode, from - 1);
+
+			// Link nodes
+			leftNeighFromNode->p_next = toNode;
+			toNode->p_next = rightNeighFromNode;
+			leftNeighToNode->p_next = fromNode;
+			fromNode->p_next = nullptr;
+		}
+		else {
+			// Get remaining neighbours 
+			Node* leftNeighFromNode = atNode(p_startNode, from - 1);
+			Node* rightNeighToNode = atNode(p_startNode, to + 1);
+
+			// Link nodes
+			leftNeighFromNode->p_next = toNode;
+			toNode->p_next = rightNeighFromNode;
+			leftNeighToNode->p_next = fromNode;
+			fromNode->p_next = rightNeighToNode;
+		}
+	}
+}
+
 void LinkedList::display()
 {
 	cout << "Linked list: " << endl;
@@ -116,10 +175,10 @@ void LinkedList::display()
 			// Get a copy of next node to get its value
 			Node _node = *node->p_next;
 
-			cout << "\t value: " << node->value << " | next adress: " << node->p_next << " (next adress' value: " << _node.value << ")" << endl;
+			cout << "\t value: " << node->value << "\tnext adress: " << node->p_next << " (next adress' value: " << _node.value << ")" << endl;
 		}
 		else {
-			cout << "\t value: " << node->value << " | next adress: " << node->p_next << endl;
+			cout << "\t value: " << node->value << "\tnext adress: " << node->p_next << endl;
 		}
 		node = node->p_next;
 	}

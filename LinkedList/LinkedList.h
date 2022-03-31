@@ -19,6 +19,7 @@ public:
 	void pushBack();
 	void remove(int pos);
 	int at(int pos);
+	void swap(int from, int to);
 
 	int size() { return listSize; }
 	void display();

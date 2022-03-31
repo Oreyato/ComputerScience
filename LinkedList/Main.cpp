@@ -60,6 +60,20 @@ int main() {
 	list.remove(5);
 	list.remove(1);
 
+	cout << endl;
+	list.display();
+
+	list.add(10);
+	list.add(11);
+	list.insert(20, 2);
+
+	cout << endl;
+	list.display();
+
+	list.swap(1, 4);
+	list.swap(3, 5);
+
+	cout << endl;
 	list.display();
 
 	return 0;
