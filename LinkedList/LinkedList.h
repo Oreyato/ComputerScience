@@ -16,8 +16,8 @@ public:
 
 	void add(int num);
 	void insert(int num, int pos);
-	void pushBack(int num);
-	void remove(int num, int pos);
+	void pushBack();
+	void remove(int pos);
 	int at(int pos);
 
 	int size() { return listSize; }

@@ -52,9 +52,15 @@ int main() {
 	list.add(3);
 	list.add(4);
 
-	list.display();
+	list.insert(5, 2);
 
-	cout << list.at(9);
+	list.pushBack();
+
+	list.remove(0);
+	list.remove(5);
+	list.remove(1);
+
+	list.display();
 
 	return 0;
 }
