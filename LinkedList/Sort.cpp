@@ -1,6 +1,6 @@
 #include "Sort.h"
 
-void Sort::bubbleSort(LinkedList list)
+void Sort::bubbleSort(LinkedList& list)
 {
 	bool moved = true;
 

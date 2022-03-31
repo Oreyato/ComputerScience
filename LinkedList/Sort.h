@@ -4,7 +4,7 @@
 class Sort
 {
 public:
-	static void bubbleSort(LinkedList list);
+	static void bubbleSort(LinkedList& list);
 
 private:
 
