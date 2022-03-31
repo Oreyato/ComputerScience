@@ -56,9 +56,9 @@ int main() {
 
 	bubbleList.display();
 
+	cout << "Bubble sort" << endl;
 	Sort::bubbleSort(bubbleList);
 
-	cout << endl;
 	bubbleList.display();
 
 	return 0;

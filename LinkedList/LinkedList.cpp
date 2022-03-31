@@ -211,6 +211,7 @@ void LinkedList::display()
 		}
 		node = node->p_next;
 	}
+	cout << endl;
 }
 
 Node* LinkedList::atNode(Node* node, int pos)
