@@ -128,6 +128,12 @@ void LinkedList::swap(int from, int to)
 		// Get to node
 		Node* toNode = atNode(p_startNode, to);
 
+		bool neighbours = false;
+		// Testing if from and to are neighbours
+		if (to - from == 1) {
+			neighbours = true;
+		} 
+
 		// Get always existing neighbours
 		Node* rightNeighFromNode = atNode(p_startNode, from + 1);
 		Node* leftNeighToNode = atNode(p_startNode, to - 1);
@@ -146,8 +152,14 @@ void LinkedList::swap(int from, int to)
 
 			// Link nodes
 			leftNeighFromNode->p_next = toNode;
-			toNode->p_next = rightNeighFromNode;
-			leftNeighToNode->p_next = fromNode;
+			if (!neighbours)
+			{
+				toNode->p_next = rightNeighFromNode;
+				leftNeighToNode->p_next = fromNode;
+			}
+			else {
+				toNode->p_next = fromNode;
+			}
 			fromNode->p_next = nullptr;
 		}
 		else {
@@ -157,8 +169,14 @@ void LinkedList::swap(int from, int to)
 
 			// Link nodes
 			leftNeighFromNode->p_next = toNode;
-			toNode->p_next = rightNeighFromNode;
-			leftNeighToNode->p_next = fromNode;
+			if (!neighbours)
+			{
+				toNode->p_next = rightNeighFromNode;
+				leftNeighToNode->p_next = fromNode;
+			}
+			else {
+				toNode->p_next = fromNode;
+			}
 			fromNode->p_next = rightNeighToNode;
 		}
 	}
@@ -175,7 +193,7 @@ void LinkedList::display()
 			// Get a copy of next node to get its value
 			Node _node = *node->p_next;
 
-			cout << "\t value: " << node->value << "\tnext adress: " << node->p_next << " (next adress' value: " << _node.value << ")" << endl;
+			cout << "\t value: " << node->value << "\tnext adress: " << node->p_next << " (next val.: " << _node.value << ")" << endl;
 		}
 		else {
 			cout << "\t value: " << node->value << "\tnext adress: " << node->p_next << endl;

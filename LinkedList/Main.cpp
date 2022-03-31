@@ -70,8 +70,8 @@ int main() {
 	cout << endl;
 	list.display();
 
-	list.swap(1, 4);
-	list.swap(3, 5);
+	list.swap(1, 2);
+	list.swap(4, 5);
 
 	cout << endl;
 	list.display();
