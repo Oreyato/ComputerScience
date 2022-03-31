@@ -70,6 +70,7 @@ int main() {
 	cout << endl;
 	list.display();
 
+	list.swap(0, 3);
 	list.swap(1, 2);
 	list.swap(4, 5);
 

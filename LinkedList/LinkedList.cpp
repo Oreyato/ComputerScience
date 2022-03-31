@@ -143,7 +143,18 @@ void LinkedList::swap(int from, int to)
 			// Get remaining neighbour
 			Node* rightNeighToNode = atNode(p_startNode, to + 1);
 
+			// Link nodes
+			if (!neighbours)
+			{
+				toNode->p_next = rightNeighFromNode;
+				leftNeighToNode->p_next = fromNode;
+			}
+			else {
+				toNode->p_next = fromNode;
+			}
+			fromNode->p_next = rightNeighToNode;
 
+			p_startNode = toNode;
 		}
 		// Is the destination pos the last one on the list?
 		else if (to == listSize - 1) {
