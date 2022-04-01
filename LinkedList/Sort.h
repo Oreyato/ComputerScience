@@ -5,6 +5,7 @@ class Sort
 {
 public:
 	static void bubbleSort(LinkedList& list);
+	static void selectionSort(LinkedList& list);
 
 private:
 

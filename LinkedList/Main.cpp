@@ -45,21 +45,26 @@ int main() {
 	// =============================================================  
 	#pragma endregion
 
-	LinkedList bubbleList{ 4 };
-	bubbleList.add(5);
-	bubbleList.add(2);
-	bubbleList.add(8);
-	bubbleList.add(3);
-	bubbleList.add(1);
-	bubbleList.add(2);
-	bubbleList.add(7);
+	LinkedList list{ 4 };
+	list.add(5);
+	list.add(2);
+	list.add(8);
+	list.add(3);
+	list.add(1);
+	list.add(2);
+	list.add(7);
 
-	bubbleList.display();
+	list.display();
 
-	cout << "Bubble sort" << endl;
-	Sort::bubbleSort(bubbleList);
+	//cout << "Bubble sort" << endl;
+	//Sort::bubbleSort(list);
 
-	bubbleList.display();
+	//list.display();
+
+	cout << "Selection sort" << endl;
+	Sort::selectionSort(list);
+
+	list.display();
 
 	return 0;
 }
