@@ -38,12 +38,25 @@ void LinkedList::addList(LinkedList& list)
 
 void LinkedList::addListPortion(LinkedList& list, int from, int to)
 {
-	int addedListSize = (to - from) + 1;
+	// In order to simplify the tests, from will always be the lowest value
+	if (from > to) {
+		int tmp = from;
+		from = to;
+		to = tmp;
+	}
 
-	atNode(p_startNode, listSize - 1)->p_next = list.atNode(list.getStartNode(), from);
+	// Testing if the destination pos exists within the list
+	if (to > list.size() - 1) {
+		sizeError();
+	}
+	else {
+		int addedListSize = (to - from) + 1;
 
-	listSize += addedListSize;
-	atNode(p_startNode, listSize - 1)->p_next = nullptr;
+		atNode(p_startNode, listSize - 1)->p_next = list.atNode(list.getStartNode(), from);
+
+		listSize += addedListSize;
+		atNode(p_startNode, listSize - 1)->p_next = nullptr;
+	}
 }
 
 void LinkedList::insert(int num, int pos)
