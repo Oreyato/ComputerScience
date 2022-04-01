@@ -8,6 +8,6 @@ public:
 	static void selectionSort(LinkedList& list);
 
 private:
-
+	static bool checkSizeError(int len);
 };
 

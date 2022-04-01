@@ -2,20 +2,27 @@
 
 void Sort::bubbleSort(LinkedList& list)
 {
-	bool moved = true;
+	int len = list.size();
 
-	while (moved) {
-		moved = false;
-		int len = list.size();
+	if (!checkSizeError(len)) {
+		std::cout << "Bubble sort" << std::endl;
 
-		for (int i = 0; i < len - 1; i++)
-		{
-			if (list.at(i) > list.at(i + 1)) {
-				list.swap(i, i + 1);
+		bool moved = true;
 
-				moved = true;
+		while (moved) {
+			moved = false;
+
+			for (int i = 0; i < len - 1; i++)
+			{
+				if (list.at(i) > list.at(i + 1)) {
+					list.swap(i, i + 1);
+
+					moved = true;
+				}
 			}
 		}
+
+		list.display();
 	}
 }
 
@@ -23,21 +30,41 @@ void Sort::selectionSort(LinkedList& list)
 {
 	int len = list.size();
 
-	for (int i = 0; i < len - 1; i++)
-	{
-		int lowest = list.at(i);
-		int swapIndex = 0;
+	if (!checkSizeError(len)) {
+		std::cout << "Selection sort" << std::endl;
 
-		for (int j = i + 1; j < len; j++)
+		for (int i = 0; i < len - 1; i++)
 		{
-			if (lowest > list.at(j)) {
-				lowest = list.at(j);
-				swapIndex = j;
+			int lowest = list.at(i);
+			int swapIndex = 0;
+
+			for (int j = i + 1; j < len; j++)
+			{
+				if (lowest > list.at(j)) {
+					lowest = list.at(j);
+					swapIndex = j;
+				}
+			}
+
+			if (lowest != list.at(i)) {
+				list.swap(i, swapIndex);
 			}
 		}
 
-		if (lowest != list.at(i)) {
-			list.swap(i, swapIndex);
-		}
+		list.display();
 	}
+}
+
+bool Sort::checkSizeError(int len)
+{
+	if (len == 0)
+	{
+		std::cout << "You can't sort an empty list";
+		return true;
+	}
+	else if (len == 1) {
+		std::cout << "There is only one item in this list, thus it is already sorted" << std::endl;
+		return true;
+	}
+	else return false;
 }
