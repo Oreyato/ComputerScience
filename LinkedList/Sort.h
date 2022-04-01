@@ -6,8 +6,11 @@ class Sort
 public:
 	static void bubbleSort(LinkedList& list);
 	static void selectionSort(LinkedList& list);
+	static void mergeSort(LinkedList& list);
 
 private:
+	static void divideInHalf(LinkedList& list);
+
 	static bool sizeError(int len);
 };
 

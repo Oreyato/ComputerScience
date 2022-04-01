@@ -56,7 +56,7 @@ int main() {
 	list2.add(2);
 	list2.add(7);
 
-	list.add(list2);
+	list.addListPortion(list2, 2, 3);
 	list.display();
 
 	//Sort::bubbleSort(list);

@@ -27,13 +27,23 @@ void LinkedList::add(int num)
 	listSize++;
 }
 
-void LinkedList::add(LinkedList& list)
+void LinkedList::addList(LinkedList& list)
 {
-	int newListSize = list.size();
+	int addedListSize = list.size();
 
 	atNode(p_startNode, listSize - 1)->p_next = list.atNode(list.getStartNode(), 0);
 
-	listSize += newListSize;
+	listSize += addedListSize;
+}
+
+void LinkedList::addListPortion(LinkedList& list, int from, int to)
+{
+	int addedListSize = (to - from) + 1;
+
+	atNode(p_startNode, listSize - 1)->p_next = list.atNode(list.getStartNode(), from);
+
+	listSize += addedListSize;
+	atNode(p_startNode, listSize - 1)->p_next = nullptr;
 }
 
 void LinkedList::insert(int num, int pos)
@@ -112,6 +122,16 @@ int LinkedList::at(int pos)
 		// Switch out of the user context
 		return atNode(p_startNode, pos)->value;
 	}
+}
+
+Node* LinkedList::atNode(Node* node, int pos)
+{
+	if (pos == 0)
+	{
+		return node;
+	}
+
+	atNode(node->p_next, pos - 1);
 }
 
 void LinkedList::swap(int from, int to)
@@ -221,16 +241,6 @@ void LinkedList::display()
 		node = node->p_next;
 	}
 	cout << endl;
-}
-
-Node* LinkedList::atNode(Node* node, int pos)
-{
-	if (pos == 0)
-	{
-		return node;
-	}
-
-	atNode(node->p_next, pos - 1);
 }
 
 void LinkedList::sizeError()

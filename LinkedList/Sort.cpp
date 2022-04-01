@@ -55,6 +55,39 @@ void Sort::selectionSort(LinkedList& list)
 	}
 }
 
+void Sort::mergeSort(LinkedList& list)
+{
+	int len = list.size();
+
+	if (!sizeError(len)) {
+		std::cout << "Merge sort" << std::endl;
+
+		// Divide in half
+
+		// Compare by pairs
+
+		// Create new growing list
+
+		// Remplace the "list" argument with the new finished list 
+
+	}
+}
+
+void Sort::divideInHalf(LinkedList& list)
+{
+	int len = list.size();
+	int half = len / 2;
+
+	LinkedList leftList;
+	for (int i = 0; i < half; i++)
+	{
+		/*leftList.add();*/
+	}
+
+	LinkedList rightList;
+
+}
+
 bool Sort::sizeError(int len)
 {
 	if (len == 0)
