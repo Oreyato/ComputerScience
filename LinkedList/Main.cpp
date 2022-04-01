@@ -65,14 +65,23 @@ int main() {
 
 	//list.display();
 
+	LinkedList list4;
+
 	LinkedList list3{ 4 };
 	list3.add(2);
 	list3.add(7);
 	list3.add(8);
 
 	list3.display();
+	list4.display();
 
-	Sort::mergeSort(list3);
+	// ISSUE WITH ADD_LIST & ADD_LIST_PORTION
+	list4.addList(list3);
+	list4.addList(list3);
+
+	list4.display();
+
+	//Sort::mergeSort(list3);
 
 	return 0;
 }
