@@ -49,16 +49,18 @@ int main() {
 	list.add(5);
 	list.add(2);
 	list.add(8);
-	list.add(3);
-	list.add(1);
-	list.add(2);
-	list.add(7);
 
+	LinkedList list2{ 3 };
+	list2.add(3);
+	list2.add(1);
+	list2.add(2);
+	list2.add(7);
+
+	list.add(list2);
 	list.display();
 
-	Sort::bubbleSort(list);
+	//Sort::bubbleSort(list);
 
-	//cout << "Selection sort" << endl;
 	//Sort::selectionSort(list);
 
 	//list.display();
