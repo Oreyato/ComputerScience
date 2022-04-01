@@ -27,6 +27,15 @@ void LinkedList::add(int num)
 	listSize++;
 }
 
+void LinkedList::add(LinkedList list)
+{
+	int newListSize = list.size();
+
+	atNode(p_startNode, listSize - 1)->p_next = list.atNode(list.getStartNode(), 0);
+
+	listSize += newListSize;
+}
+
 void LinkedList::insert(int num, int pos)
 {
 	// Get node's adress at current position
