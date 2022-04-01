@@ -101,10 +101,9 @@ void Sort::divideInHalf(LinkedList& list)
 	merge(leftList, rightList); 
 }
 
-void Sort::merge(LinkedList& lList, LinkedList& rList)
+LinkedList& Sort::merge(LinkedList& lList, LinkedList& rList)
 {
 	//v IDEE =========================================================
-
 	// On part du nombre le plus à gauche de la liste de gauche lList
 
 	// On le compare avec le nombre le plus à gauche de la liste de droite rList
@@ -114,9 +113,54 @@ void Sort::merge(LinkedList& lList, LinkedList& rList)
 
 	// Par contre, s'il est plus petit, c'est lui qui part au plus à droite de la nouvelle liste et on passe à nombre suivant de la liste de gauche
 	//^ IDEE =========================================================
-	//v PSEUDO CODE ==================================================
+	//v CODE =========================================================
+	LinkedList newList;
 	
-	//^ PSEUDO CODE ==================================================
+	// Get left and right lists sizes
+	const int lSize = lList.size();
+	const int rSize = rList.size();
+
+	// Initialize left and right lists first values
+	int lValue = 0;
+	int rValue = 0;
+
+	// Initialise indexes
+	int lIndex = 0;
+	int rIndex = 0;
+
+	bool completedRList = false;
+
+	for (int i = 0; i < lSize; i++)
+	{
+		lIndex = i;
+		lValue = lList.at(i);
+
+		if (!completedRList)
+		{
+			for (int j = rIndex; j < rSize; j++)
+			{
+				rIndex = j;
+				rValue = rList.at(j);
+
+				if (lValue >= rValue) {
+					newList.add(rList.at(j));
+
+					if (j = rSize) {
+						completedRList = true;
+					}
+				}
+				else {
+					newList.add(lList.at(i));
+					break;
+				}
+			}
+		}
+		
+		newList.add(lList.at(i));
+	}
+
+	return newList;
+	//^ CODE =========================================================
 }
 
 bool Sort::sizeError(int len)

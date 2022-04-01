@@ -65,5 +65,12 @@ int main() {
 
 	//list.display();
 
+	LinkedList list3{ 4 };
+	list3.add(2);
+	list3.add(7);
+	list3.add(8);
+
+	Sort::mergeSort(list3);
+
 	return 0;
 }
