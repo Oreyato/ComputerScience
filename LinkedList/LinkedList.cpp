@@ -27,7 +27,7 @@ void LinkedList::add(int num)
 	listSize++;
 }
 
-void LinkedList::add(LinkedList list)
+void LinkedList::add(LinkedList& list)
 {
 	int newListSize = list.size();
 

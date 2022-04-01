@@ -15,7 +15,7 @@ public:
 	LinkedList(int num);
 
 	void add(int num);
-	void add(LinkedList list);
+	void add(LinkedList& list);
 	void insert(int num, int pos);
 	void pushBack();
 	void remove(int pos);
