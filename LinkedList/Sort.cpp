@@ -4,7 +4,7 @@ void Sort::bubbleSort(LinkedList& list)
 {
 	int len = list.size();
 
-	if (!checkSizeError(len)) {
+	if (!sizeError(len)) {
 		std::cout << "Bubble sort" << std::endl;
 
 		bool moved = true;
@@ -30,7 +30,7 @@ void Sort::selectionSort(LinkedList& list)
 {
 	int len = list.size();
 
-	if (!checkSizeError(len)) {
+	if (!sizeError(len)) {
 		std::cout << "Selection sort" << std::endl;
 
 		for (int i = 0; i < len - 1; i++)
@@ -55,7 +55,7 @@ void Sort::selectionSort(LinkedList& list)
 	}
 }
 
-bool Sort::checkSizeError(int len)
+bool Sort::sizeError(int len)
 {
 	if (len == 0)
 	{
