@@ -27,16 +27,22 @@ void LinkedList::add(int num)
 	listSize++;
 }
 
-void LinkedList::addList(LinkedList& list)
+void LinkedList::addList(LinkedList list)
 {
 	int addedListSize = list.size();
 
-	atNode(p_startNode, listSize - 1)->p_next = list.atNode(list.getStartNode(), 0);
+	if (listSize > 0)
+	{
+		atNode(p_startNode, listSize - 1)->p_next = list.atNode(list.getStartNode(), 0);
+	}
+	else {
+		p_startNode = list.getStartNode();
+	}
 
 	listSize += addedListSize;
 }
 
-void LinkedList::addListPortion(LinkedList& list, int from, int to)
+void LinkedList::addListPortion(LinkedList list, int from, int to)
 {
 	// In order to simplify the tests, from will always be the lowest value
 	if (from > to) {
@@ -52,7 +58,13 @@ void LinkedList::addListPortion(LinkedList& list, int from, int to)
 	else {
 		int addedListSize = (to - from) + 1;
 
-		atNode(p_startNode, listSize - 1)->p_next = list.atNode(list.getStartNode(), from);
+		if (listSize > 0)
+		{
+			atNode(p_startNode, listSize - 1)->p_next = list.atNode(list.getStartNode(), from);
+		}
+		else {
+			p_startNode = list.atNode(list.getStartNode(), from);
+		}
 
 		listSize += addedListSize;
 		atNode(p_startNode, listSize - 1)->p_next = nullptr;

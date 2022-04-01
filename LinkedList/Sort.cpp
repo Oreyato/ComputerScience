@@ -64,9 +64,6 @@ void Sort::mergeSort(LinkedList& list)
 
 		// Divide in half and merge inside
 		divideInHalf(list);
-
-		// Remplace the "list" argument with the new finished list 
-
 	}
 }
 
@@ -77,17 +74,14 @@ void Sort::divideInHalf(LinkedList& list)
 
 	// Fill a new list with half the initial list
 	LinkedList leftList;
-	for (int i = 0; i < half; i++)
-	{
-		leftList.addListPortion(list, 0, half);
-	}
+	leftList.addListPortion(list, 0, half - 1);
+
+	LinkedList testList;
+	testList.addListPortion(list, 0, len - 1);
 
 	// Fill an other list with the other half of the initial list
 	LinkedList rightList;
-	for (int i = 0; i < len; i++)
-	{
-		rightList.addListPortion(list, half + 1, len - 1);
-	}
+	rightList.addListPortion(list, half, len - 1);
 
 	// Test if there is more than one element in the lists
 	if (leftList.size() > 1) 
@@ -98,22 +92,11 @@ void Sort::divideInHalf(LinkedList& list)
 		divideInHalf(rightList);
 	}
 
-	merge(leftList, rightList); 
+	merge(leftList, rightList).display(); 
 }
 
 LinkedList& Sort::merge(LinkedList& lList, LinkedList& rList)
 {
-	//v IDEE =========================================================
-	// On part du nombre le plus à gauche de la liste de gauche lList
-
-	// On le compare avec le nombre le plus à gauche de la liste de droite rList
-
-	// Tant qu'il est plus grand on continue, jusqu'à avoir fait toute la liste
-	//										^ on place entre temps le nombre plus petit tout à droite d'une nouvelle liste
-
-	// Par contre, s'il est plus petit, c'est lui qui part au plus à droite de la nouvelle liste et on passe à nombre suivant de la liste de gauche
-	//^ IDEE =========================================================
-	//v CODE =========================================================
 	LinkedList newList;
 	
 	// Get left and right lists sizes
@@ -160,7 +143,6 @@ LinkedList& Sort::merge(LinkedList& lList, LinkedList& rList)
 	}
 
 	return newList;
-	//^ CODE =========================================================
 }
 
 bool Sort::sizeError(int len)

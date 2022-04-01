@@ -45,19 +45,19 @@ int main() {
 	// =============================================================  
 	#pragma endregion
 
-	LinkedList list{ 4 };
-	list.add(5);
-	list.add(2);
-	list.add(8);
+	//LinkedList list{ 4 };
+	//list.add(5);
+	//list.add(2);
+	//list.add(8);
 
-	LinkedList list2{ 3 };
-	list2.add(3);
-	list2.add(1);
-	list2.add(2);
-	list2.add(7);
+	//LinkedList list2{ 3 };
+	//list2.add(3);
+	//list2.add(1);
+	//list2.add(2);
+	//list2.add(7);
 
-	list.addListPortion(list2, 2, 3);
-	list.display();
+	//list.addListPortion(list2, 2, 3);
+	//list.display();
 
 	//Sort::bubbleSort(list);
 
@@ -69,6 +69,8 @@ int main() {
 	list3.add(2);
 	list3.add(7);
 	list3.add(8);
+
+	list3.display();
 
 	Sort::mergeSort(list3);
 

@@ -13,10 +13,11 @@ class LinkedList
 public:
 	LinkedList();
 	LinkedList(int num);
+	//LinkedList(const LinkedList& otherList);
 
 	void add(int num);
-	void addList(LinkedList& list);
-	void addListPortion(LinkedList& list, int from, int to);
+	void addList(LinkedList list);
+	void addListPortion(LinkedList list, int from, int to);
 	void insert(int num, int pos);
 	void pushBack();
 	void remove(int pos);
