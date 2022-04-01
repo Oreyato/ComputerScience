@@ -10,6 +10,7 @@ public:
 
 private:
 	static void divideInHalf(LinkedList& list);
+	static void merge(LinkedList& lList, LinkedList& rList);
 
 	static bool sizeError(int len);
 };
